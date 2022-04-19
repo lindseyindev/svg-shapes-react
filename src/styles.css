@@ -1,0 +1,57 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  border: 2px solid red;
+  overflow: visible;
+ 
+}
+.svg {
+  overflow: visible;
+}
+
+.star {
+  animation: star 5s linear infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+  overflow: visible;
+}
+
+@keyframes star {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+.rectangle {
+  animation: zip 10s linear infinite;
+  overflow: visible;
+}
+@keyframes zip {
+  0% {
+    transform: translateX(200%);
+  }
+
+  100% {
+    transform: translateX(-200%);
+  }
+}
+
+.mode-button {
+  border: 2px solid black;
+  background-color: #4D4861;
+  padding: 10px;
+  border-radius: 15px;
+  margin: 10px;
+  font-size: 40px;
+}
+
+.mode-button:hover {
+background-color: #605770;
+}
+
+.mode-text {
+  position: absolute;
+}

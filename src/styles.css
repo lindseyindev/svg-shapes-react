@@ -61,3 +61,12 @@ background-color: #605770;
 .mode-text {
   position: absolute;
 }
+
+@media (prefers-reduced-motion) {
+  .rectangle {
+    animation: none;
+  }
+  .star {
+    animation: none;
+  }
+}

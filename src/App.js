@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 
 export default function App() {
   const [dayMode, setDayMode] = useState(true);
+  const [animationsOn, setAnimationsOn] = useState(true);
 
   return (
     <>
@@ -45,7 +46,11 @@ export default function App() {
             >
               <image
                 xmlnsXlink="http://www.w3.org/1999/xlink"
-                xlinkHref={dayMode ? "http://www.boogdesign.com/examples/svg/daisy-grass-repeating-background.jpg" : "https://live.staticflickr.com/7347/8719349462_91ba8d69ff_b.jpg"}
+                xlinkHref={
+                  dayMode
+                    ? "http://www.boogdesign.com/examples/svg/daisy-grass-repeating-background.jpg"
+                    : "https://live.staticflickr.com/7347/8719349462_91ba8d69ff_b.jpg"
+                }
                 x="0"
                 y="-.5"
                 width="2"
@@ -54,7 +59,7 @@ export default function App() {
             </pattern>
           </defs>
           <rect
-            className="rectangle"
+            className={animationsOn ? "rectangle" : ""}
             x="10"
             y="5"
             fill="#89937C"
@@ -66,7 +71,7 @@ export default function App() {
           <polygon
             fill="#715B64"
             stroke="black"
-            className="star"
+            className={animationsOn ? "star" : ""}
             points="279,5 294,35 328,40 303,62 309,94 
 279,79 248,94 254,62 230,39 263,35 "
           />
@@ -80,22 +85,31 @@ export default function App() {
             ry="100"
             stroke="black"
           >
-
-            <animateTransform
-              attributeName="transform"
-              type="scale"
-              from="1 1"
-              to="2 2"
-              begin="0s"
-              dur="10s"
-              repeatCount="indefinite"
-            />
-            
+            {animationsOn ? (
+              <animateTransform
+                attributeName="transform"
+                type="scale"
+                from="1 1"
+                to="2 2"
+                begin="0s"
+                dur="10s"
+                repeatCount="indefinite"
+              />
+            ) : null}
           </ellipse>
-          <text x="20" y="180" text-anchor="middle" fill="#EDCB96" font-size="30" class="mode-text">{dayMode ? "Day" : "Night"}</text>
-
+          <text
+            x="20"
+            y="180"
+            text-anchor="middle"
+            fill="#EDCB96"
+            font-size="30"
+            class="mode-text"
+          >
+            {dayMode ? "Day" : "Night"}
+          </text>
         </svg>
       </div>
+      <div className="button-container">
       <button
         className="mode-button"
         type="button"
@@ -103,6 +117,14 @@ export default function App() {
       >
         {dayMode ? "Night Mode" : "Day Mode"}
       </button>
+      <button
+        className="mode-button"
+        type="button"
+        onClick={(e) => setAnimationsOn(!animationsOn)}
+      >
+        {animationsOn ? "Disable Animations" : "Enable Animations"}
+      </button>
+      </div>
     </>
   );
 }

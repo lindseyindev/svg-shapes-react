@@ -5,6 +5,11 @@
   overflow: visible;
  
 }
+.button-container {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
 .svg {
   overflow: visible;
 }
@@ -27,7 +32,7 @@
 
 .rectangle {
   animation: zip 10s linear infinite;
-  overflow: visible;
+  
 }
 @keyframes zip {
   0% {
@@ -46,6 +51,7 @@
   border-radius: 15px;
   margin: 10px;
   font-size: 40px;
+  color: white;
 }
 
 .mode-button:hover {
